@@ -1,0 +1,15 @@
+{
+  "name": "fatturo-example",
+  "version": "0.1.0",
+  "description": "Example of how to use fatturo",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test",
+    "fatturo": "fatturo"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "fatturo": "file:.."
+  }
+}

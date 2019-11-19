@@ -1,0 +1,11 @@
+me: ./me
+client: ./clients/software-company
+date: 2019-11-19
+products:
+  - title: Hard work
+    amount: 5
+currency: EUR
+payment:
+  IBAN: IT0000000000000000001
+  BIC: BICCODE
+  To: Ascari Andrea

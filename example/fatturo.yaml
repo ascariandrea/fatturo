@@ -1,0 +1,3 @@
+dateFormat: d-m-YYYY
+dataDir: ./data
+outDir: ./invoices

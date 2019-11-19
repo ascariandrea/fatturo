@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>Fattura 7</title>
+
+  <style>
+    .invoice-box {
+      max-width: 800px;
+      margin: auto;
+      padding: 30px;
+      font-size: 14px;
+      line-height: 24px;
+      font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+      color: #666;
+    }
+
+    .invoice-box table {
+      width: 100%;
+      line-height: inherit;
+      text-align: left;
+    }
+
+    .invoice-box table td {
+      padding: 5px;
+      vertical-align: top;
+    }
+
+    .invoice-box table tr td:nth-child(2) {
+      text-align: right;
+    }
+
+    .invoice-box table tr.top table td {
+      padding-bottom: 20px;
+    }
+
+    .invoice-box table tr.top table td.title {
+      font-size: 32px;
+      line-height: 32px;
+      color: #333;
+    }
+
+    .invoice-box table tr.information table td {
+      padding-bottom: 40px;
+    }
+
+    .invoice-box table tr.heading td {
+      border-bottom: 1px solid #ddd;
+      font-weight: bold;
+    }
+
+    .invoice-box table tr.details td {
+      padding-bottom: 20px;
+    }
+
+    .invoice-box table tr.item td {
+      border-bottom: 1px solid #eee;
+    }
+
+    .invoice-box table tr.item.last td {
+      border-bottom: none;
+    }
+
+    .invoice-box table tr.total {
+      margin-bottom: 50px;
+    }
+
+    .invoice-box table tr.total td:nth-child(2) {
+      border-top: 2px solid #eee;
+      font-weight: bold;
+    }
+
+    .invoice-box table tr.blank-space {
+      height: 100px;
+    }
+
+    @media only screen and (max-width: 600px) {
+      .invoice-box table tr.top table td {
+        width: 100%;
+        display: block;
+        text-align: center;
+      }
+
+      .invoice-box table tr.information table td {
+        width: 100%;
+        display: block;
+        text-align: center;
+      }
+    }
+
+    /** RTL **/
+    .rtl {
+      direction: rtl;
+      font-family: Tahoma, "Helvetica Neue", "Helvetica", Helvetica, Arial,
+        sans-serif;
+    }
+
+    .rtl table {
+      text-align: right;
+    }
+
+    .rtl table tr td:nth-child(2) {
+      text-align: left;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="invoice-box">
+    <table cellpadding="0" cellspacing="0">
+
+      <tr class="top">
+        <td colspan="2" style="text-align: right;">
+          <div class="title">
+            {{me.name}}
+          </div>
+
+          <div>
+            Fattura #{{number}}<br />
+            {{date}}<br />
+          </div>
+        </td>
+      </tr>
+
+      <tr class="information">
+        <td colspan="2">
+          <div style="display: -webkit-box; margin: 20px 0;">
+              <div style="display: -webkit-box; width: 50%;">
+                {{me.name}}<br />
+                {{me.address}}<br />
+                P.IVA {{me.vat}}
+              </div>
+
+              <div style="display: -webkit-box; width: 50%; -webkit-box-pack: end; text-align: right">
+                {{client.name}}<br />
+                {{client.address}}<br />
+                P.IVA {{client.vat}}<br />
+              </td>
+          </div>
+        </td>
+      </tr>
+
+      <tr class="heading">
+        <td>
+          Prodotto
+        </td>
+
+        <td>
+          Prezzo
+        </td>
+      </tr>
+      {{#products}}
+      <tr class="item last">
+        <td>
+          <h4>{{title}}</h4>
+        </td>
+
+        <td>
+          € {{amount}}
+        </td>
+      </tr>
+      {{/products}}
+
+      <tr class="total">
+        <td></td>
+
+        <td>
+          Total: € {{total}}
+        </td>
+      </tr>
+
+      <tr class="blank-space"></tr>
+
+      <tr class="heading">
+        <td>
+          Metodo di pagamento
+        </td>
+        <td>
+          Bonifico Bancario
+        </td>
+      </tr>
+
+      {{#payment}}
+      <tr class="details">
+        <td>{{key}}</td>
+        <td>{{value}}</td>
+      </tr>
+      {{/payment}}
+      <tr class="blank-space"></tr>
+    </table>
+
+    <p>
+      € {{total}} - Operazione effettuata ai sensi dell'art. 1, cc da 54 a 89 Legge 190/2014 - Regime Forfettario
+    </p>
+    <!-- <p>€ 1000.00 No VAT liability in Seller's Country. Customer to Reverse Charge Art. 44 & 196 EC Dir. 2006/112</p> -->
+  </div>
+</body>
+
+</html>
