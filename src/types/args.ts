@@ -6,7 +6,7 @@ export const args = t.intersection(
     t.partial(
       {
         c: t.string,
-        noEmit: t.boolean
+        noEmit: t.boolean,
       },
       'Config'
     )
