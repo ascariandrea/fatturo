@@ -15,6 +15,9 @@ export const Me = t.interface(
   {
     name: t.string,
     address: t.string,
+    zipCode: t.string,
+    city: t.string,
+    province: t.string,
     vat: t.string
   },
   "Me"
@@ -40,6 +43,9 @@ export const Client = t.interface(
   {
     name: t.string,
     address: t.string,
+    zipCode: t.string,
+    city: t.string,
+    province: t.string,
     vat: t.string
   },
   "Client"
